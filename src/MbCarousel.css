@@ -1,0 +1,96 @@
+*{
+  margin:0;
+  padding:0;
+}
+
+.tc-overlay{
+  width:100%;
+  height:100%;
+  position:fixed;
+  top:0;
+  left:0;
+  opacity:0;
+  z-index:100000;
+  background-color:#222;
+  background-color:rgba(0,0,0,0.8);
+  overflow:hidden;
+  display:none;
+
+  -moz-transition:opacity 1s ease;
+  -webkit-transition:opacity 1s ease;
+  transition:opacity 1s ease;
+}
+
+.tc-slider{
+  height:100%;
+
+  left:0;
+  top:0;
+
+  width:100%;
+  white-space: nowrap;
+  position:absolute;
+
+/*  -moz-transition:left 0.4s ease;
+  -webkit-transition:left 0.4s ease;
+  transition:left 0.4s ease;*/
+}
+
+.tc-img-box{
+  background: url("../preloader.gif") no-repeat center center;
+  height: 100%;
+  min-height: 100px;
+  line-height: 1px;
+  text-align: center;
+  width:100%;
+  display:inline-block;
+}
+
+.tc-img-box:before {
+  content: "";
+  display: inline-block;
+  height: 50%;
+  width: 1px;
+  margin-right: -1px;
+}
+
+.tc-img-box img{
+  display: inline-block;
+  max-height: 100%;
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+
+
+.prev-btn,.next-btn{
+  border:none;
+  text-decoration:none;
+  background:url('../images/arrows.png') no-repeat;
+  opacity:0.5;
+  cursor:pointer;
+  position:absolute;
+  width:43px;
+  height:58px;
+  
+  top:50%;
+  margin-top:-29px;
+  
+  -moz-transition:opacity 0.2s ease;
+  -webkit-transition:opacity 0.2s ease;
+  transition:opacity 0.2s ease;
+}
+
+.prev-btn:hover, .next-btn:hover{
+  opacity:1;
+}
+
+.prev-btn{
+  background-position:left top;
+  left:40px;
+}
+
+.next-btn{
+  background-position:right top;
+  right:40px;
+}

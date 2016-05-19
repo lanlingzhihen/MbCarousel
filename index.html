@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+
+  <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame 
+       Remove this if you use the .htaccess -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+  <meta name="description" content="" />
+  <meta name="author" content="Administrator" />
+
+  <meta name="viewport" content="width=device-width,initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+
+  <!-- Replace favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
+  <link rel="shortcut icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+   <link rel="stylesheet" href="src/MbCarousel.css" />
+</head>
+
+<body>
+
+<script type="text/javascript" src="lib/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="lib/linkedlist.js"></script>
+<script type="text/javascript" src="src/MbCarousel.js"></script>
+<script type="text/javascript">
+  (function(){
+    carousel = $([]).MbCarousel({items:[
+      {imageUrl:'http://www.sinaimg.cn/dy/slidenews/5_img/2013_43/453_33831_417536.jpg'},
+      {imageUrl:'http://www.sinaimg.cn/dy/slidenews/5_img/2013_43/453_33832_403567.jpg'},
+      {imageUrl:'http://www.sinaimg.cn/dy/slidenews/5_img/2013_43/453_33833_907600.jpg'},
+      {imageUrl:'http://www.sinaimg.cn/dy/slidenews/5_img/2013_43/453_33834_230596.jpg'},
+      {imageUrl:'http://www.sinaimg.cn/dy/slidenews/5_img/2013_42/44886_816409_982758.jpg'}
+    ],
+    cycle:true,
+    flipOver: function(thisCarousel, is_forword){
+      if(is_forword && (thisCarousel.length() - thisCarousel.currentPos()) == 2){
+        // thisCarousel.appendItems([
+        //   {imageUrl:'http://www.sinaimg.cn/dy/slidenews/5_img/2013_43/453_33831_417536.jpg?'},
+        //   {imageUrl:'http://www.sinaimg.cn/dy/slidenews/5_img/2013_43/453_33832_403567.jpg?'}
+        // ]);
+      }
+      else if (!is_forword && (thisCarousel.currentPos() == 1)){
+        // carousel.prependItems([
+        //   {imageUrl:'http://www.sinaimg.cn/dy/slidenews/5_img/2013_43/453_33834_230596.jpg?'},
+        //   {imageUrl:'http://www.sinaimg.cn/dy/slidenews/5_img/2013_42/44886_816409_982758.jpg?'}
+        // ]);
+      }
+    },
+    init: function(thisCarousel){
+      alert('init');
+    },
+    close: function(thisCarousel){
+      alert('close');
+    },
+    nomore : function(thisCarousel, is_forword){
+      if(is_forword){
+        alert('right');
+      }
+      else{
+        alert('left');
+      }
+    }
+
+    });
+    carousel.init();
+    
+    
+  })();
+</script>
+
+</body>
+</html>
